@@ -4,22 +4,106 @@
 # Escreva um programa que verifique esses campos e imprima "Dados válidos" se ambos 
 # forem positivos ou "Dados inválidos" caso contrário.
 
+"""
+try:
+    qnt = int(input("Digite a quantidade: "))
+except ValueError:
+    print("Quantidade inválida. Deve ser um número inteiro.")
+    qnt = -1
+
+try:
+    vlr = float(input("Digite o preço: "))
+except ValueError:
+    print("Preço inválido. Deve ser um número.")
+    vlr = -1
+
+if qnt > 0 and vlr > 0:
+    print("Dados válidos")
+else:
+    print("Dados inválidos")
+"""
+
 ### Exercício 2: Classificação de Dados de Sensor
 # Imagine que você está trabalhando com dados de sensores IoT. 
 # Os dados incluem medições de temperatura. Você precisa classificar cada leitura 
 # como 'Baixa', 'Normal' ou 'Alta'. Considerando que:
+
+"""
+try:
+    temp = float(input("Digite a temperatura: "))
+
+    if temp < 18:
+        print("Baixa")
+    elif 18 <= temp <= 26:
+        print("Normal")
+    else:
+        print("Alta")
+except ValueError:
+    print("Temperatura inválida. Deve ser um número.")
+"""
 
 ### Exercício 3: Filtragem de Logs por Severidade
 # Você está analisando logs de uma aplicação e precisa filtrar mensagens 
 # com severidade 'ERROR'. Dado um registro de log em formato de dicionário 
 # como `log = {'timestamp': '2021-06-23 10:00:00', 'level': 'ERROR', 'message': 'Falha na conexão'}`, 
 # escreva um programa que imprima a mensagem se a severidade for 'ERROR'.
+"""
+log = {'timestamp': '2021-06-23 10:00:00', 'level': 'ERROR', 'message': 'Falha na conexão'}
+
+if log['level'] == 'ERROR':
+    print(f"Mensagem de Erro: {log['message']}")
+else:
+    print(f"Tipo de serveridade {log['level']}")
+"""
 
 ### Exercício 4: Validação de Dados de Entrada
 # Antes de processar os dados de usuários em um sistema de recomendação, 
 # você precisa garantir que cada usuário tenha idade entre 18 e 65 anos e tenha 
 # fornecido um email válido. Escreva um programa que valide essas condições 
 # e imprima "Dados de usuário válidos" ou o erro específico encontrado.
+
+#validaçao variaveis
+val1 = 0
+ext = ".com"
+val2 = 0
+
+"""
+while True:
+    try:
+        idade = int(input("Digite sua idade: "))
+        if idade > 0:
+           break
+        else:
+            print("Digite um numero maior que zero")
+    except ValueError:
+        print("Digite somente numeros inteiros.")
+"""
+
+while True:
+    #input
+    email = str("Digite seu email: ")
+    letras = list(email)
+
+    #validação
+    for letra in letras:
+        if letra == "@":
+            val1 = val1 + 1
+        else:
+            val1 = val1
+
+    for ext in email:
+        val2 = val2 + 1
+
+    if val1 != 1:
+        print(f"O email <{email}> é invalido.")
+    elif val2 < 1:
+        print(f"O email <{email}> é invalido.")
+    else:
+        break
+
+print(email)
+
+
 
 ### Exercício 5: Detecção de Anomalias em Dados de Transações
 # Você está trabalhando em um sistema de detecção de fraude e precisa identificar 
