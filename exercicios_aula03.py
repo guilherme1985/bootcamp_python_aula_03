@@ -63,47 +63,40 @@ else:
 # e imprima "Dados de usuário válidos" ou o erro específico encontrado.
 
 #validaçao variaveis
-val1 = 0
-ext = ".com"
-val2 = 0
+val1 = int(0)
 
-"""
 while True:
     try:
         idade = int(input("Digite sua idade: "))
         if idade > 0:
-           break
+            break
         else:
-            print("Digite um numero maior que zero")
+            print("\nDigite um numero maior que zero")
     except ValueError:
-        print("Digite somente numeros inteiros.")
-"""
+        print("\nDigite somente numeros inteiros.")
 
 while True:
-    #input
-    email = str("Digite seu email: ")
+    email = str(input("Digite seu email: "))
     letras = list(email)
 
     #validação
-    for letra in letras:
-        if letra == "@":
-            val1 = val1 + 1
-        else:
-            val1 = val1
-
-    for ext in email:
-        val2 = val2 + 1
+    if email.endswith(".com.br"):
+        for letra in letras:
+            if letra == "@":
+                val1 = val1 + 1
+            else:
+                val1 = val1
+    else:
+        print("\nEmail nao termina em <.com.br>")
 
     if val1 != 1:
-        print(f"O email <{email}> é invalido.")
-    elif val2 < 1:
-        print(f"O email <{email}> é invalido.")
+        print(f"\nO email <{email}> é invalido.")
     else:
         break
 
-print(email)
-
-
+print("\nDados de usuário válidos")
+"""
+"""
 
 ### Exercício 5: Detecção de Anomalias em Dados de Transações
 # Você está trabalhando em um sistema de detecção de fraude e precisa identificar 
